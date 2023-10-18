@@ -32,14 +32,14 @@ const Products = () => {
         }
     ]);
   return (
-    <div className='row'>
-      {products.map((product) => {
-        return (
-          <div className='row'>
-            <Producto nombre={product.nombre} img={product.img} precio={product.precio}/>
-          </div>
-        )
-      })}
+    <div className='d-grid col-9 col-md-9 ms-5'>
+      <div className='row row-cols-1 row-cols-md-3 g-4 text-center'>
+        {products.map((product) => {
+          return (
+              <Producto nombre={product.nombre} img={product.img} precio={product.precio}/>
+          )
+        })}
+      </div>
     </div>
   )
 };

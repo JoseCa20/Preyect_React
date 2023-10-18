@@ -44,19 +44,18 @@ const Iconos = () => {
       },
   ]);
 
-  return (
-    <div className='container-xxl mt-3 my-md-4 ms-1 row'>
-      <div className='d-flex flex-column flex-shrink-0 p-3 bg-light col-3' style={{width: "250px"}}>
-        <a className='d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none'>
-        </a>
-        <ul className='nav nav-pills flex-column mb-auto'>
-          {icons.map((icon) => {
-            return (          
-              <Icon img={icon.img} nombre={icon.nombre}/>
-            )
-          })}
-        </ul>
-      </div>
+  return (    
+    <div className='d-flex flex-column p-3 bg-light' style={{width: "250px"}}>
+      <a className='d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none'>
+      </a>
+      <hr></hr>
+      <ul className='nav nav-pills flex-column mb-auto'>
+        {icons.map((icon) => {
+          return (          
+            <Icon img={icon.img} nombre={icon.nombre}/>
+          )
+        })}
+      </ul>
     </div>
   )
 }
