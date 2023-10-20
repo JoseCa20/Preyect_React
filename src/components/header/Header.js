@@ -1,10 +1,10 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Logo from '../assets/img/Logo.png';
-import phone from '../assets/img/telefono.png';
-import mail from '../assets/img/mail_header.png';
-import user from '../assets/img/person.png';
-import carrito from '../assets/img/carrito.png';
+import Logo from '../../assets/img/Logo.png';
+import phone from '../../assets/img/telefono.png';
+import mail from '../../assets/img/mail_header.png';
+import user from '../../assets/img/person.png';
+import carrito from '../../assets/img/carrito.png';
 
 export default function Header() {
   return (

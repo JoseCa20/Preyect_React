@@ -1,0 +1,26 @@
+[
+    {"id": 1,
+    "nombre": "Coronita 210 mL x6 un",
+    "precio": 15490,
+    "img": "https://www.google.com/imgres?imgurl=https%3A%2F%2Fjumbocolombiaio.vtexassets.com%2Farquivos%2Fids%2F440069%2F7702004110725.jpg%3Fv%3D638043996740100000&tbnid=S_DQ8TqrxiRmjM&vet=12ahUKEwiH2dqG0YOCAxUQDGIAHaWCDogQMygBegUIARCQAQ..i&imgrefurl=https%3A%2F%2Fwww.tiendasjumbo.co%2Fcerveza-coronita-x6und-x210ml-c-u---%2Fp&docid=DRhtNazr5nArtM&w=1000&h=1000&q=coronita%20six%20pack&hl=es-419&ved=2ahUKEwiH2dqG0YOCAxUQDGIAHaWCDogQMygBegUIARCQAQ"
+    },
+
+    {"id": 2,
+    "nombre": "Budweiser 250 mL x6 un",
+    "precio": 12990,
+    "img": "https://www.google.com/imgres?imgurl=https%3A%2F%2Fjumbocolombiaio.vtexassets.com%2Farquivos%2Fids%2F514737-800-800%3Fv%3D638296988486600000%26width%3D800%26height%3D800%26aspect%3Dtrue&tbnid=avrBI-0Gh-LAPM&vet=12ahUKEwiUi-vf0YOCAxWiXDABHR-gBpwQMygBegQIARBL..i&imgrefurl=https%3A%2F%2Fwww.tiendasjumbo.co%2Fcerveza-budweiser-botella-x6und-x250ml-c-u%2Fp&docid=IRf4qWnmoJQRzM&w=800&h=800&q=budweiser%20botella%20six%20pack&hl=es-419&ved=2ahUKEwiUi-vf0YOCAxWiXDABHR-gBpwQMygBegQIARBL"
+    },
+
+    {"id": 3,
+    "nombre": "Stella Artois 355 mL x6 un",
+    "precio": 27990,
+    "img": "https://www.google.com/imgres?imgurl=https%3A%2F%2Fwww.bartendme.co%2Fwp-content%2Fuploads%2F2020%2F10%2Fcerveza-stella-artois-six-pack-domicilios.png&tbnid=OwN0-O8v4XhArM&vet=12ahUKEwjd3bn10YOCAxVJRzABHTi4CYsQMygEegQIARBS..i&imgrefurl=https%3A%2F%2Fwww.bartendme.co%2Fproducto%2Fcerveza-stella-artois-six-pack-330ml%2F&docid=4FuPs-ewznlHIM&w=450&h=550&q=stella%20artois%20botella%20six%20pack&hl=es-419&ved=2ahUKEwjd3bn10YOCAxVJRzABHTi4CYsQMygEegQIARBS"
+    },
+
+    {"id": 4, 
+    "nombre": "Heineken 250 mL x6 un",
+    "precio": 14490,
+    "img": "https://www.google.com/imgres?imgurl=https%3A%2F%2Fmaxitenjo.com.co%2Fcdn%2Fshop%2Fproducts%2Fcerveza-heineken-sixpack-botella-x-250-ml-1_1024x.jpg%3Fv%3D1595012860&tbnid=RV7VzExhrTJwwM&vet=12ahUKEwi75p-20oOCAxUgA1kFHSOFAEIQMygBegQIARBt..i&imgrefurl=https%3A%2F%2Fmaxitenjo.com.co%2Fproducts%2Fcerveza-heineken-botella-six-pack-x-250-cm&docid=9Oqw5aydOjvTqM&w=1000&h=1000&q=heineken%20botella%20six%20pack&hl=es-419&ved=2ahUKEwi75p-20oOCAxUgA1kFHSOFAEIQMygBegQIARBt"
+    }
+
+]

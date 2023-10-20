@@ -1,10 +1,10 @@
 import React from 'react'
-import facebook from '../assets/img/facebook.png';
-import twiter from '../assets/img/twiter.png';
-import instagram from '../assets/img/instagram.png';
-import location from '../assets/img/location.png';
-import phone from '../assets/img/llamada.png';
-import mail from '../assets/img/mail.png';
+import facebook from '../../assets/img/facebook.png';
+import twiter from '../../assets/img/twiter.png';
+import instagram from '../../assets/img/instagram.png';
+import location from '../../assets/img/location.png';
+import phone from '../../assets/img/llamada.png';
+import mail from '../../assets/img/mail.png';
 
 export default function Footer() {
   return (
