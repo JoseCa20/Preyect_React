@@ -9,38 +9,54 @@ import cigarrillos from '../../assets/img/cigarrillos.png';
 import gaseosas from '../../assets/img/gaseosas.png';
 import cerrarSesion from '../../assets/img/salir.png';
 
-const Iconos = () => {
+const Navbar = () => {
   const [icons, setIcons] = useState([
-      {nombre: "Home",
-      img: home
+      {
+        id: 1,
+        nombre: "Home",
+        img: home
       },
   
-      {nombre: "Cuenta",
-      img: cuenta
+      {
+        id: 2,
+        nombre: "Cuenta",
+        img: cuenta
       },
 
-      {nombre: "Pedidos",
-      img: pedidos
+      {
+        id: 3,
+        nombre: "Pedidos",
+        img: pedidos
       },
 
-      {nombre: "Cervezas",
-      img: cervezas
+      {
+        id: 4,
+        nombre: "Cervezas",
+        img: cervezas
       },
 
-      {nombre: "Licores",
-      img: licores
+      {
+        id: 5,
+        nombre: "Licores",
+        img: licores
       },
 
-      {nombre: "Cigarrillos",
-      img: cigarrillos
+      {
+        id: 6,
+        nombre: "Cigarrillos",
+        img: cigarrillos
       },
 
-      {nombre: "Gaseosas",
-      img: gaseosas
+      {
+        id: 7,
+        nombre: "Gaseosas",
+        img: gaseosas
       },
 
-      {nombre: "Cerrar Sesion",
-      img: cerrarSesion
+      {
+        id: 8,
+        nombre: "Cerrar Sesion",
+        img: cerrarSesion
       },
   ]);
 
@@ -60,4 +76,4 @@ const Iconos = () => {
   )
 }
 
-export default Iconos;
+export default Navbar;

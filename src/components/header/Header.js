@@ -4,9 +4,16 @@ import Logo from '../../assets/img/Logo.png';
 import phone from '../../assets/img/telefono.png';
 import mail from '../../assets/img/mail_header.png';
 import user from '../../assets/img/person.png';
-import carrito from '../../assets/img/carrito.png';
+import imgCarrito from '../../assets/img/carrito.png';
+import {Link} from 'react-router-dom';
+import TotalItems from '../Carrito/TotalItems';
+import {useContext} from 'react';
+import { dataContext } from '../Context/DataContext';
 
 export default function Header() {
+
+  const { carrito } = useContext(dataContext);
+
   return (
     <header className="sticky-top">
       <nav className="navbar navbar-expand-lg bg-light sticky-top d-flex">
@@ -41,13 +48,15 @@ export default function Header() {
           </button>
           
           <div className="collapse navbar-collapse justify-content-end gap-3" id="navbarSupportedContent"> 
-            <button type="button" className="btn btn-info" onclick="location.href='./login.html'"><img src={user} id="logo_user" alt="user" height="20" onclick="location.href='./login.html'"></img> Inicio Sesión</button>
-            <button type="button" className="btn btn-info" onclick="location.href='./logup.html'">Registrarse</button>
-            <button type="button" className="btn btn-info" data-bs-toggle="offcanvas" data-bs-target="#carrito"><img src={carrito} id="logo_user" alt="user" height="20"></img></button>
-          </div> 
+            <button type="button" className="btn btn-info" onClick="location.href='./login.html'"><img src={user} id="logo_user" alt="user" style={{height: "20px"}} onClick="location.href='./login.html'"></img> Inicio Sesión</button>
+            <button type="button" className="btn btn-info" onClick="location.href='./logup.html'">Registrarse</button>
+            <Link to={"/cart"} className='d-flex justify-content-evenly align-items-center btn btn-info' style={{width: "70px", height: "40px"}}><img src={imgCarrito} id="logo_user" alt="user"></img>{carrito.length > 0 ? <TotalItems/> : null}</Link>
+          </div>           
         </div>
       </nav>
     </header>
 
   )
 }
+
+

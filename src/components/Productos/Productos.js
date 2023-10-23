@@ -3,19 +3,16 @@ import { dataContext } from '../Context/DataContext';
 
 
 const Products = () => {
-    const { data, carrito, setCarrito} = useContext(dataContext);
 
-    const comprarProductos = (product) =>{
-      console.log(product);
-    }
+  const { data, comprarProductos} = useContext(dataContext);    
 
   return (
     <div className='d-grid col-9 col-md-9 ms-5'>
       <div className='row row-cols-1 row-cols-md-3 g-4 text-center'>
         {data.map((product) => {
           return (
-            <div className='col'>
-              <div className='card' key={product.id}>
+            <div className='col' key={product.id}>
+              <div className='card'>
                 <img className='card-img-top' src={product.img}></img>
                 <div className='card-body'>
                   <h5 className='card-title'>{product.nombre}</h5>
