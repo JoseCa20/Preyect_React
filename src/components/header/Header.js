@@ -30,9 +30,9 @@ export default function Header() {
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse gap-5 justify-content-end" id="navbarSupportedContent"> 
-            <a className="nav-item" href="#">Home</a>
-            <a className="nav-item" href="./index.html#contacto">Contáctenos</a>
-            <a className="nav-item" href="./index.html#nosotros">¿Quienes Somos?</a>                       
+            <Link to={"/"} className="nav-item">Home</Link>
+            <Link className="nav-item">Contáctenos</Link>
+            <Link className="nav-item">¿Quienes Somos?</Link>                       
           </div>
         </div>
       </nav>
@@ -48,7 +48,7 @@ export default function Header() {
           </button>
           
           <div className="collapse navbar-collapse justify-content-end gap-3" id="navbarSupportedContent"> 
-            <button type="button" className="btn btn-info" onClick="location.href='./login.html'"><img src={user} id="logo_user" alt="user" style={{height: "20px"}} onClick="location.href='./login.html'"></img> Inicio Sesión</button>
+            <Link to={"/logup"} className="btn btn-info"><img src={user} id="logo_user" alt="user" style={{height: "20px"}} ></img> Inicio Sesión</Link>
             <button type="button" className="btn btn-info" onClick="location.href='./logup.html'">Registrarse</button>
             <Link to={"/cart"} className='d-flex justify-content-evenly align-items-center btn btn-info' style={{width: "70px", height: "40px"}}><img src={imgCarrito} id="logo_user" alt="user"></img>{carrito.length > 0 ? <TotalItems/> : null}</Link>
           </div>           

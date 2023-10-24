@@ -9,7 +9,7 @@ const TotalItems = () => {
     const cantidadItemsCarrito = carrito.reduce((acumulador, elemento) => acumulador + elemento.cantidad, 0);
 
     return (
-        <p className='bg-danger rounded'>{cantidadItemsCarrito}</p>
+        <p className='text-danger' style={{fontWeight: "bold"}}>{cantidadItemsCarrito}</p>
     )
 }
 

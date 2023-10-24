@@ -45,8 +45,8 @@ const CarritoContent = () => {
         <h2 className='p-3 mb-2 bg-success text-white text-center'>Carrito de compras</h2>
       </div>
       <div className='d-grid justify-content-center mt-5' >
-        <img src={imgCarrito} alt='' ></img>
-        <p className=''>Tu Carrito esta vacío</p>
+        <img src={imgCarrito} alt='' className='mx-5'></img>
+        <p className='text-center'>Tu Carrito esta vacío</p>
         <Link to={"/"} className="btn btn-danger" >VOLVER A LA TIENDA</Link>
       </div> 
     </>   
