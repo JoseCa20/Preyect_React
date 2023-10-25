@@ -3,7 +3,8 @@ import check from '../../assets/img/check.png';
 import error from '../../assets/img/error.png';
 
 
-const InputForm = ( {estado, cambiarEstado, type, label, placeholder, name, msgError, regex} ) => {
+
+const InputForm = ( {estado, cambiarEstado, type, label, placeholder, name, msgError, regex, funcion} ) => {
 
   const onChange = (e) => {
     cambiarEstado({...estado, campo: e.target.value});
@@ -17,27 +18,32 @@ const InputForm = ( {estado, cambiarEstado, type, label, placeholder, name, msgE
         cambiarEstado({...estado, valido: 'false'});
       }
     }
+    if(funcion){
+      funcion();
+    }
   }
 
   return (
-    <div>
+    <> 
+    <div className=''>
       <label htmlFor={name}>{label}</label>
-      <div className='grupoInput'>
-        <input 
-        type={type} 
-        placeholder={placeholder} 
-        id={name} 
-        value={estado.campo} 
-        onChange={onChange}
-        onKeyUp={validacion}
-        onBlur={validacion}
-        valido={estado.valido}
-        >        
-        </input>
-        <img src={estado.valido === 'true' ? check : error}></img>
-      </div>
-      <p className='msgError'>{msgError}</p>
-    </div>
+        <div className='grupoInput'>
+          <input className='inputFormulario'
+          type={type} 
+          placeholder={placeholder} 
+          id={name} 
+          value={estado.campo} 
+          onChange={onChange}
+          onKeyUp={validacion}
+          onBlur={validacion}
+          valido={estado.valido}
+          >        
+          </input>
+          <img className='icono' valido={estado.valido} src={estado.valido === 'true' ? check : error}></img>
+        </div>
+      <p className='msgError' valido={estado.valido}>{msgError}</p>          
+    </div>    
+  </>
   )
 }
 
