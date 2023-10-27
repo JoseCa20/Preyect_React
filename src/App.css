@@ -60,7 +60,7 @@ body{
 
 .inputFormulario{
   width: 100%;
-  background: #ddcbcb;
+  background: #fff;
   border-radius: 3px;
   height: 45px;
   line-height: 45px;
@@ -109,7 +109,6 @@ label{
 .msgExito{
   font-size: 14px;
   color: #1ed12d;
-  display: none;
 }
 
 .msgAlerta{
@@ -119,7 +118,6 @@ label{
   padding: 0px 15px;
   border-radius: 3px;
   grid-column: span 2;
-  display: none;
 
   >p{
     margin: 0;
@@ -154,19 +152,18 @@ label{
 }
 
 form{
-  border: 1px solid black;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 20px;
 
-  @media screen{max-width: 800px;
+  @media (max-width: 800px){
     grid-template-columns: 1fr;
     
   }
 }
 
 .containerForm{
-    border: 1px solid purple;
+    background: rgb(206, 200, 200);
     max-width: 800px;
     width: 90%;
     margin: auto;
@@ -181,6 +178,10 @@ form{
   grid-column: span 2;
   >input{
     margin-right: 10px;
+  }
+
+  @media (max-width: 800px) {
+    grid-column: span 1;
   }
 }
 .containerBoton{
@@ -205,5 +206,11 @@ form{
       box-shadow: 3px 0px 30px rgba(163, 163, 163, 1);
     }
   }
+
+  @media (max-width: 800px) {
+    grid-column: span 1;
+  }
 }
+
+
 

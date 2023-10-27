@@ -15,6 +15,7 @@ const Logup = () => {
   const [password, cambiarPassword] = useState({campo: '', validar: null});
   const [confirmarPassword, cambiarConfirmarPassword] = useState({campo: '', validar: null});
   const [terminos, cambiarTerminos] = useState(false);
+  const [formularioValido, cambiarformularioValido] = useState(null);
 
   const expresiones = {
     usuario: /^[a-zA-Z0-9_-]{4,16}$/, // Letras, numeros, guion y guion_bajo
@@ -39,17 +40,47 @@ const Logup = () => {
     }
   }
 
+  const onChangeTerminos = (e) => {
+    cambiarTerminos(e.target.checked);
+  } 
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    
+    if (
+      nombres.valido === 'true' &&
+      apellidos.valido === 'true' &&
+      documento.valido === 'true' &&
+      celular.valido === 'true' &&
+      email.valido === 'true' &&
+      password.valido === 'true' &&
+      confirmarPassword.valido === 'true' &&
+      terminos)     
+    {
+      cambiarformularioValido(true);
+      cambiarNombres({campo: '', valido: null});
+      cambiarApellidos({campo: '', valido: null});
+      cambiarDocumento({campo: '', valido: null});
+      cambiarCelular({campo: '', valido: null});
+      cambiarEmail({campo: '', valido: null});
+      cambiarPassword({campo: '', valido: null});
+      cambiarConfirmarPassword({campo: '', valido: null});
+    }else{
+      cambiarformularioValido(false);
+    }
+  }
+
   return (
     <>
     <Header/>
     <div className='containerForm'>           
-      <form>
+      <form onSubmit={onSubmit}>
           <InputForm 
             estado={nombres}
             cambiarEstado={cambiarNombres}
             type="text"
             label="Nombres"
-            placeholder="jose"
+            placeholder="Tus nombres"
             name="Nombres"
             msgError="El nombre no puede contener números, ni carácteres especiales"
             regex={expresiones.nombre}
@@ -59,17 +90,27 @@ const Logup = () => {
             cambiarEstado={cambiarApellidos}
             type="text"
             label="Apellidos"
-            placeholder="Caceres"
+            placeholder="Tus Apellidos"
             name="Apellidos"
             msgError="El apellido no puede contener números, ni carácteres especiales"
             regex={expresiones.nombre}
           />
+          {/* <div>
+          <label>Tipo documento</label>
+            <select className="select" name="select">
+              <option value="value1"></option>
+              <option value="value2" selected>Cédula ciudadanía</option>
+              <option value="value3">Cédula Extranjería</option>
+              <option value="value4">Pasaporte</option>
+            </select>
+            <p className='msgError'></p>
+          </div> */}
           <InputForm 
             estado={documento}
             cambiarEstado={cambiarDocumento}
             type="text"
             label="N° Documento"
-            placeholder="987768899"
+            placeholder="Ingrese solo números, sin puntos y comas"
             name="N° Documento"
             msgError="Ingrese solo números, sin puntos y comas"
             regex={expresiones.documento}
@@ -79,7 +120,7 @@ const Logup = () => {
             cambiarEstado={cambiarCelular}
             type="text"
             label="Telefono"
-            placeholder="3100000000"
+            placeholder="Ingrese solo números, sin puntos y comas"
             name="Telefono"
             msgError="Ingrese solo números, sin puntos y comas"
             regex={expresiones.telefono}
@@ -89,7 +130,7 @@ const Logup = () => {
             cambiarEstado={cambiarEmail}
             type="email"
             label="Email"
-            placeholder="jose@mail.com"
+            placeholder="Example@mail.com"
             name="Email"
             msgError="Formato de email incorrecto"
             regex={expresiones.correo}
@@ -99,7 +140,7 @@ const Logup = () => {
             cambiarEstado={cambiarPassword}
             type="password"
             label="Contraseña"
-            placeholder=""
+            placeholder="********"
             name="Contraseña"
             msgError="Tamaño de contraseña incorrecto, mínimo 8 carácteres"
             regex={expresiones.password}
@@ -109,23 +150,23 @@ const Logup = () => {
             cambiarEstado={cambiarConfirmarPassword}
             type="password"
             label="Confirmar"
-            placeholder=""
+            placeholder="********"
             name="confirmar"
             msgError="contraseñas no coinciden"
             funcion = {validarPassword}
           />
         <div className='container-terminos'>
           <label>
-            <input type='checkbox' name='terminos' id='terminos'></input>
+            <input type='checkbox' name='terminos' id='terminos' checked={terminos} onChange={onChangeTerminos}></input>
               Acepto los Términos y Condiciones            
           </label>
         </div>
-        <div className='msgAlerta'>
-          <p><b><img src={alerta} alt='img-{alerta}'></img>Error: </b>Por favor rellena el formulario correctamente</p>
-        </div>  
+        {formularioValido === false && <div className='msgAlerta'>
+         <p><b><img src={alerta} alt='img-{alerta}'></img>Error: </b>Por favor rellena el formulario correctamente</p>
+        </div>}  
         <div className='containerBoton'>
           <button type='submit'>Enviar</button>
-          <p className='msgExito'>Formulario enviado exitosamente</p>
+          {formularioValido === true && <p className='msgExito'>Formulario enviado exitosamente</p>}
         </div>                   
       </form>
     </div>

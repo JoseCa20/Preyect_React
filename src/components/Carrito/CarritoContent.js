@@ -10,6 +10,21 @@ import { Link } from 'react-router-dom';
 const CarritoContent = () => {
   const {carrito} = useContext(dataContext);
 
+  function pagar() {
+    const venta = {
+      productos: carrito,
+      total: carrito.reduce((acumulador, elemento) => acumulador + elemento.precio * elemento.cantidad, 0)
+    };
+
+    fetch("/pay",{
+      headers: {
+        "Content-type": "Application/json",
+      },
+      method: "POST",
+      body: JSON.stringify(venta),
+    });
+  }
+
   return (
     <>
       <Header/>
@@ -33,10 +48,10 @@ const CarritoContent = () => {
       </table>  
       <Carritototal/> 
       <div className="mt-5 d-flex justify-content-center">
-        <button className="btn btn-success" data-bs-dismiss="offcanvas"> COMPRAR </button>
+        <button className="btn btn-success" onClick={pagar} > COMPRAR </button>
       </div> 
       <div className="mt-5 d-flex justify-content-center">
-          <button className="btn btn-danger" data-bs-dismiss="offcanvas">VOLVER A LA TIENDA</button>
+          <Link to={"/"} className="btn btn-danger" >VOLVER A LA TIENDA</Link>
       </div> 
     </>   
     ) : (
