@@ -36,6 +36,21 @@ const Login = () => {
         }
     }
 
+    function enviarLogin() {
+        const enviar = {
+          usuario: correo.campo,
+          clave: clave.campo
+        };
+    
+        fetch("/login",{
+          headers: {
+            "Content-type": "Application/json",
+          },
+          method: "POST",
+          body: JSON.stringify(enviar),
+        });
+    }
+
     return (
         <>
         <Header/>
@@ -43,7 +58,7 @@ const Login = () => {
             <div className='container py-5' style={{background: "rgb(206, 200, 200)"}}>
                 <div className='row'>
                     <div className='col-md-8 col-lg-7 col-xl-6' >
-                        <img src={imgLogin} style={{maxWidth: "100%"}}></img>
+                        <img src={imgLogin} alt='{imgLogin}' style={{maxWidth: "100%"}}></img>
                     </div>
                     <div className='col-md-4 col-lg-5 col-xl-5 offset-xl-1'>
                         <form className='d-flex flex-column aling-items-center' onSubmit={onSubmit}>
@@ -78,7 +93,7 @@ const Login = () => {
                                 <p><b><img src={imgAlerta} alt='img-{alerta}'></img>Error: </b>Correo y/o contraseña incorrecto</p>
                                 </div>}
                                 <div className='containerBoton'>
-                                <button type='submit'>Ingresar</button>
+                                <button type='submit' onClick={enviarLogin}>Ingresar</button>
                                 {validarFormulario === true && <p className='msgExito'>Bienvenido</p>}
                                 </div>   
                         </form>

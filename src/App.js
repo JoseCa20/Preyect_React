@@ -6,6 +6,9 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import CarritoContent from './components/Carrito/CarritoContent';
 import Logup from './components/views/Logup';
 import Login from './components/views/Login';
+import Admin from './components/views/Admin';
+import Index from './components/views/Index';
+
 
 function App() {
   return (
@@ -16,6 +19,10 @@ function App() {
           <Route path='/cart' element={<CarritoContent/>}/>
           <Route path='/logup' element={<Logup/>}/>
           <Route path='/login' element={<Login/>}/>
+          <Route path='/admin' element={<Admin/>}/>
+          <Route path='/index' element={<Index/>}/>
+          <Route path='/pay'/>
+
         </Routes>
       </BrowserRouter>
     </DataProvider>
