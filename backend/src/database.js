@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-URI = ('mongodb://localhost/ecommerce');
+const URI = ('mongodb://localhost/ecommerce');
 
 mongoose.connect(URI, {
     useNewUrlParser: true,

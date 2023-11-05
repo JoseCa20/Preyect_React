@@ -3,7 +3,6 @@ import Header from '../header/Header';
 import Footer from '../footer/Footer';
 import InputForm from '../form/InputForm';
 import alerta from '../../assets/img/alert_icon-icons.com_52395.png';
-import axios from 'axios';
 
 
 const Logup = () => {

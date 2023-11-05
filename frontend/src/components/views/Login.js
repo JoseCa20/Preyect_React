@@ -95,7 +95,7 @@ const Login = () => {
                                 <div className='containerBoton'>
                                 <button type='submit' onClick={enviarLogin}>Ingresar</button>
                                 {validarFormulario === true && <p className='msgExito'>Bienvenido</p>}
-                                </div>   
+                            </div>   
                         </form>
                     </div>
                 </div>
