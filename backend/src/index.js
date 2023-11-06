@@ -13,7 +13,7 @@ app.use(express.json());
 
 app.use(require('./routes/routes'));
 
-app.use(express.static(path.join(__dirname, 'public')));
+//app.use(express.static(path.join(__dirname, 'build')));
 
 app.use(cors({
     origin: "*",
@@ -24,4 +24,11 @@ app.listen(app.get('Port'), () => {
     console.log('escuchando por el puerto:', app.get('Port'));
 })
 
-app.get("/productos")
+app.use(express.static(path.join(__dirname, 'build')));
+app.get("/", (req, res) => {
+    res.sendFile(path.join(__dirname, 'build/index.html'));
+})
+
+app.get('/login', (req, res) => {
+    res.sendFile(path.join(__dirname, 'build/index.html'));
+})
