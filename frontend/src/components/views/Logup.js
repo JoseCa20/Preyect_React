@@ -66,6 +66,30 @@ const Logup = () => {
       cambiarPassword({campo: '', valido: null});
       cambiarConfirmarPassword({campo: '', valido: null});
 
+      const usuario = {
+        "nombres": nombres.campo,
+        "apellidos": apellidos.campo,
+        "documento": documento.campo,
+        "celular": celular.campo,
+        "email": email.campo,
+        "password": password.campo,
+      }
+
+      fetch('/logup/usuarios')
+      .then((res) => res.json())
+      .then((data) => console.log(data))
+      .catch((error) => console.log(error))
+
+      fetch('/logup', {
+        headers: {
+          'Content-type': 'application/json'
+        },
+        method: 'POST', 
+        body: JSON.stringify(usuario)
+      })
+      .then(res => res.json())
+      .then(data => console.log(data))
+      .catch(error => console.log(error));
 
     }else{
       cambiarformularioValido(false);
