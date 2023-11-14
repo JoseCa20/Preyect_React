@@ -22,7 +22,6 @@ function App() {
           <Route path='/admin' element={<Admin/>}/>
           <Route path='/index' element={<Index/>}/>
           <Route path='/pay'/>
-
         </Routes>
       </BrowserRouter>
     </DataProvider>

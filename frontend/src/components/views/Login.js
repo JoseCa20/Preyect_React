@@ -7,16 +7,17 @@ import imgAlerta from '../../assets/img/alert_icon-icons.com_52395.png';
 
 const Login = () => {
 
-    const [correo, cambiarCorreo] = useState({campo: '', validar: null});
-    const [clave, cambiarClave] = useState({campo: '', validar: null});
+    const [email, cambiarEmail] = useState({campo: '', validar: null});
+    const [password, cambiarPassword] = useState({campo: '', validar: null});
     const [validarFormulario, cambiarValidarFormulario] = useState(null);
+    const [navigateTo, setNavigateTo] = useState(null);
 
 
     const expresiones = {
         usuario: /^[a-zA-Z0-9_-]{4,16}$/, // Letras, numeros, guion y guion_bajo
         nombre: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
         password: /^.{8,12}$/, // 8 a 12 digitos.
-        correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
+        email: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
         telefono: /^\d{10}$/, // 10 numeros.
         documento: /^\d{7,14}$/ // 7 a 14 numeros.
     }
@@ -25,30 +26,41 @@ const Login = () => {
         e.preventDefault();
         
         if (          
-          correo.valido === 'true' &&
-          clave.valido === 'true')     
+          email.valido === 'true' &&
+          password.valido === 'true')     
         {
           cambiarValidarFormulario(true);
-          cambiarCorreo({campo: '', valido: null});
-          cambiarClave({campo: '', valido: null});
+          cambiarEmail({campo: '', valido: null});
+          cambiarPassword({campo: '', valido: null});
         }else{
           cambiarValidarFormulario(false);
         }
     }
 
-    function enviarLogin() {
+    async function enviarLogin() {
         const enviar = {
-          usuario: correo.campo,
-          clave: clave.campo
+          email: email.campo,
+          password: password.campo
         };
     
-        fetch("/login",{
+        const res = await fetch("/login",{
           headers: {
             "Content-type": "Application/json",
           },
           method: "POST",
           body: JSON.stringify(enviar),
         });
+
+        if(res.ok){
+            const data = await res.json();
+
+            const token = data.token;
+
+            if(token){
+                setNavigateTo('/');
+            }
+        }
+        
     }
 
     return (
@@ -63,19 +75,19 @@ const Login = () => {
                     <div className='col-md-4 col-lg-5 col-xl-5 offset-xl-1'>
                         <form className='d-flex flex-column aling-items-center' onSubmit={onSubmit}>
                             <InputForm
-                                estado={correo}
-                                cambiarEstado={cambiarCorreo}
+                                estado={email}
+                                cambiarEstado={cambiarEmail}
                                 type="email"
                                 label="Correo"
                                 placeholder="Example@mail.com"
                                 name="Correo"
-                                msgError="formato de correo inválido"
-                                regex={expresiones.correo}
+                                msgError="formato de email inválido"
+                                regex={expresiones.email}
                             />
 
                             <InputForm
-                                estado={clave}
-                                cambiarEstado={cambiarClave}
+                                estado={password}
+                                cambiarEstado={cambiarPassword}
                                 type="password"
                                 label="Contraseña"
                                 placeholder="********"
@@ -90,7 +102,7 @@ const Login = () => {
                                 </label>
                                 </div>
                                 {validarFormulario === false && <div className='msgAlerta'>
-                                <p><b><img src={imgAlerta} alt='img-{alerta}'></img>Error: </b>Correo y/o contraseña incorrecto</p>
+                                <p><b><img src={imgAlerta} alt='img-{alerta}'></img>Error: </b>Email y/o contraseña incorrectas</p>
                                 </div>}
                                 <div className='containerBoton'>
                                 <button type='submit' onClick={enviarLogin}>Ingresar</button>
